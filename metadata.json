@@ -1,0 +1,8 @@
+{
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "name": "Remix: Remix: VOIDY: Deep Frost Narrative",
+  "description": "A deep frost narrative experience with community-driven storytelling and AI-powered interactions."
+}

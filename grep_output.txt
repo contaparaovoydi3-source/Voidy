@@ -1,0 +1,17 @@
+1616:                                            <span key={v} className={`${Number(row.value) >= v ? 'text-cyan-400' : 'text-white/10'}`}>
+1617:                                              {row.type === 'rating_star' ? <StarIcon active={Number(row.value) >= v} className="w-2 h-2" /> : <HeartIcon active={Number(row.value) >= v} className="w-2 h-2" />}
+2080:                                                    className={`transition-all ${Number(row.value) >= v ? 'text-cyan-400 scale-110 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]' : 'text-white/10 scale-90 hover:text-white/30'}`}
+2082:                                                    {row.type === 'rating_star' ? <StarIcon active={Number(row.value) >= v} className="w-6 h-6" /> : <HeartIcon active={Number(row.value) >= v} className="w-6 h-6" />}
+2088:                                          value={row.value} 
+2154:                               if (!row.label || !row.value) return null;
+2155:                               const isRatingType = row.type === 'rating_star' || row.type === 'rating_heart' || (!isNaN(Number(row.value)) && row.value.trim() !== '');
+2168:                                                     <span key={v} className={`${Number(row.value) >= v ? 'text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]' : 'text-white/5'}`}>
+2169:                                                         {row.type === 'rating_star' ? <StarIcon active={Number(row.value) >= v} className="w-3.5 h-3.5" /> : <HeartIcon active={Number(row.value) >= v} className="w-3.5 h-3.5" />}
+2174:                                             <span className="text-[11px] font-bold text-white tracking-tight break-words text-left">{row.value}</span>
+2188:                                       <span className="text-[11px] font-bold text-white tracking-tight break-words">{row.value}</span>
+2437:                               if (!row.label || !row.value) return null;
+2438:                               const isRatingType = row.type === 'rating_star' || row.type === 'rating_heart' || (!isNaN(Number(row.value)) && row.value.trim() !== '');
+2451:                                                     <span key={v} className={`${Number(row.value) >= v ? 'text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]' : 'text-white/5'}`}>
+2452:                                                         {row.type === 'rating_star' ? <StarIcon active={Number(row.value) >= v} className="w-3.5 h-3.5" /> : <HeartIcon active={Number(row.value) >= v} className="w-3.5 h-3.5" />}
+2457:                                             <span className="text-[11px] font-bold text-white tracking-tight break-words text-left">{row.value}</span>
+2471:                                       <span className="text-[11px] font-bold text-white tracking-tight break-words">{row.value}</span>

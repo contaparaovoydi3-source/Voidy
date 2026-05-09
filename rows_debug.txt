@@ -1,0 +1,118 @@
+1611-                                    {post.customInfoRows.filter(r => r.type === 'rating_star' || r.type === 'rating_heart').slice(0, 1).map((row, i) => (
+1612-                                      <div key={i} className="flex items-center gap-1.5">
+1613-                                        <span className="text-[6px] font-black text-slate-500 uppercase tracking-widest">{row.label}:</span>
+1614-                                        <div className="flex gap-0.5">
+1615-                                          {[1, 2, 3, 4, 5].map(v => (
+1616:                                            <span key={v} className={`${Number(row.value) >= v ? 'text-cyan-400' : 'text-white/10'}`}>
+1617:                                              {row.type === 'rating_star' ? <StarIcon active={Number(row.value) >= v} className="w-2 h-2" /> : <HeartIcon active={Number(row.value) >= v} className="w-2 h-2" />}
+1618-                                            </span>
+1619-                                          ))}
+1620-                                        </div>
+1621-                                      </div>
+1622-                                    ))}
+--
+2075-                                                    onClick={() => {
+2076-                                                        const newRows = [...wikiInfoRows];
+2077-                                                        newRows[idx].value = String(v);
+2078-                                                        setWikiInfoRows(newRows);
+2079-                                                    }}
+2080:                                                    className={`transition-all ${Number(row.value) >= v ? 'text-cyan-400 scale-110 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]' : 'text-white/10 scale-90 hover:text-white/30'}`}
+2081-                                                >
+2082:                                                    {row.type === 'rating_star' ? <StarIcon active={Number(row.value) >= v} className="w-6 h-6" /> : <HeartIcon active={Number(row.value) >= v} className="w-6 h-6" />}
+2083-                                                </button>
+2084-                                            ))}
+2085-                                        </div>
+2086-                                    ) : (
+2087-                                        <input 
+2088:                                          value={row.value} 
+2089-                                          onChange={(e) => {
+2090-                                            const newRows = [...wikiInfoRows];
+2091-                                            newRows[idx].value = e.target.value;
+2092-                                            setWikiInfoRows(newRows);
+2093-                                          }} 
+--
+2149-                      {/* Creator info and Narrative content */}
+2150-                      <div className="space-y-4 pt-6 border-t border-white/5">
+2151-                         {/* Technical Data Matrix */}
+2152-                         <div className="flex flex-col gap-1.5">
+2153-                            {wikiInfoRows.map((row, i) => {
+2154:                               if (!row.label || !row.value) return null;
+2155:                               const isRatingType = row.type === 'rating_star' || row.type === 'rating_heart' || (!isNaN(Number(row.value)) && row.value.trim() !== '');
+2156-                               
+2157-                               if (isRatingType) {
+2158-                                 return (
+2159-                                   <div key={i} className="bg-white/[0.03] px-5 py-3 rounded-xl flex items-center justify-between gap-4 border border-white/10 backdrop-blur-sm group hover:bg-white/5 transition-colors">
+2160-                                      <div className="flex items-center gap-2 flex-shrink-0">
+--
+2163-                                      </div>
+2164-                                      <div className="flex-1 flex justify-end items-center min-w-0">
+2165-                                         {row.type === 'rating_star' || row.type === 'rating_heart' ? (
+2166-                                             <div className="flex gap-1">
+2167-                                                 {[1, 2, 3, 4, 5].map(v => (
+2168:                                                     <span key={v} className={`${Number(row.value) >= v ? 'text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]' : 'text-white/5'}`}>
+2169:                                                         {row.type === 'rating_star' ? <StarIcon active={Number(row.value) >= v} className="w-3.5 h-3.5" /> : <HeartIcon active={Number(row.value) >= v} className="w-3.5 h-3.5" />}
+2170-                                                     </span>
+2171-                                                 ))}
+2172-                                             </div>
+2173-                                         ) : (
+2174:                                             <span className="text-[11px] font-bold text-white tracking-tight break-words text-left">{row.value}</span>
+2175-                                         )}
+2176-                                      </div>
+2177-                                   </div>
+2178-                                 );
+2179-                               }
+--
+2183-                                    <div className="flex items-center gap-2 flex-shrink-0">
+2184-                                       <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{row.label}</span>
+2185-                                       <span className="text-[9px] font-black text-slate-700 uppercase">=</span>
+2186-                                    </div>
+2187-                                    <div className="flex-1 flex justify-end items-center min-w-0 text-left">
+2188:                                       <span className="text-[11px] font-bold text-white tracking-tight break-words">{row.value}</span>
+2189-                                    </div>
+2190-                                 </div>
+2191-                               );
+2192-                             })}
+2193-                         </div>
+--
+2432-                     <div className="space-y-4 pt-6 border-t border-white/5">
+2433-                        {/* Technical Data Matrix */}
+2434-                        {selectedPost.customInfoRows && selectedPost.customInfoRows.length > 0 && (
+2435-                          <div className="flex flex-col gap-1.5">
+2436-                             {selectedPost.customInfoRows.map((row, i) => {
+2437:                               if (!row.label || !row.value) return null;
+2438:                               const isRatingType = row.type === 'rating_star' || row.type === 'rating_heart' || (!isNaN(Number(row.value)) && row.value.trim() !== '');
+2439-                               
+2440-                               if (isRatingType) {
+2441-                                 return (
+2442-                                   <div key={i} className="bg-white/[0.03] px-5 py-3 rounded-xl flex items-center justify-between gap-4 border border-white/10 backdrop-blur-sm group hover:bg-white/5 transition-colors">
+2443-                                      <div className="flex items-center gap-2 flex-shrink-0">
+--
+2446-                                      </div>
+2447-                                      <div className="flex-1 flex justify-end items-center min-w-0">
+2448-                                         {row.type === 'rating_star' || row.type === 'rating_heart' ? (
+2449-                                             <div className="flex gap-1">
+2450-                                                 {[1, 2, 3, 4, 5].map(v => (
+2451:                                                     <span key={v} className={`${Number(row.value) >= v ? 'text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]' : 'text-white/5'}`}>
+2452:                                                         {row.type === 'rating_star' ? <StarIcon active={Number(row.value) >= v} className="w-3.5 h-3.5" /> : <HeartIcon active={Number(row.value) >= v} className="w-3.5 h-3.5" />}
+2453-                                                     </span>
+2454-                                                 ))}
+2455-                                             </div>
+2456-                                         ) : (
+2457:                                             <span className="text-[11px] font-bold text-white tracking-tight break-words text-left">{row.value}</span>
+2458-                                         )}
+2459-                                      </div>
+2460-                                   </div>
+2461-                                 );
+2462-                               }
+--
+2466-                                    <div className="flex items-center gap-2 flex-shrink-0">
+2467-                                       <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{row.label}</span>
+2468-                                       <span className="text-[9px] font-black text-slate-700 uppercase">=</span>
+2469-                                    </div>
+2470-                                    <div className="flex-1 flex justify-end items-center min-w-0 text-left">
+2471:                                       <span className="text-[11px] font-bold text-white tracking-tight break-words">{row.value}</span>
+2472-                                    </div>
+2473-                                 </div>
+2474-                               );
+2475-                             })}
+2476-                          </div>

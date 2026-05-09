@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "VOIDY",
+    "slug": "voidy-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "android": {
+      "package": "com.voidy.app",
+      "versionCode": 1
+    }
+  }
+}
