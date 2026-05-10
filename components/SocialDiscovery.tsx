@@ -107,7 +107,7 @@ const SocialDiscovery: React.FC<SocialDiscoveryProps> = ({
           <div className="grid grid-cols-3 gap-x-2 gap-y-10">
              {filteredMembers.map((member, idx) => (
                <button 
-                 key={member.name}
+                 key={`${member.name}-${idx}`}
                  onClick={() => onViewProfile(member)}
                  className="flex flex-col items-center gap-3 transition-all group active:scale-95 animate-in slide-in-from-bottom duration-500"
                  style={{ animationDelay: `${idx * 30}ms` }}

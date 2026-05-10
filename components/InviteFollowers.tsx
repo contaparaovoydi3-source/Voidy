@@ -90,7 +90,7 @@ const InviteFollowers: React.FC<InviteFollowersProps> = ({ onBack, onInviteMembe
             const isInvited = invitedIds.has(member.name);
             return (
               <div 
-                key={member.name}
+                key={`${member.name}-${idx}`}
                 className={`group relative w-full p-5 rounded-3xl bg-white/[0.02] border transition-all duration-300 flex items-center gap-4 animate-in slide-in-from-bottom duration-500 ${isInvited ? 'border-green-500/20 bg-green-500/5' : 'border-white/5 hover:border-cyan-500/30'}`}
                 style={{ animationDelay: `${idx * 40}ms` }}
               >
